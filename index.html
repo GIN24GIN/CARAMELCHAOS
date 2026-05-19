@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caramel Chaos</title>
+    <link rel="icon" type="image/png" href="caramelchaos.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-text">🎪 CARAMEL CHAOS</div>
+            <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#bienvenida">Concepto</a>
+                <a href="#personajes">Jugadores</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="transition-overlay" class="transition-overlay">
+        <div class="iris"></div>
+        <img src="salto.png" alt="Cargando..." class="loader-char">
+    </div>
+
+    <section id="personajes" class="chars-section">
+        <div class="chars-header">
+            <h2 class="section-title">¡CONOCE A LOS COMPETIDORES!</h2>
+            <p>Cada uno tiene su snack favorito y un motivo para ganar.</p> 
+        </div>
+
+        <div class="chars-grid">
+            <div class="char-card pink-theme" onclick="showDetail('copo')">
+                <div class="char-img-wrap">
+                    <img src="conejoblanco1.png" alt="Copo"> 
+                </div>
+                <h3>COPO</h3>
+                <span class="tag">¡Hiperactiva y Soñadora!</span>
+            </div>
+
+            <div class="char-card blue-theme" onclick="showDetail('rocco')">
+                <div class="char-img-wrap">
+                    <img src="concejocafe2.png" alt="Rocco">
+                </div>
+                <h3>ROCCO</h3>
+                <span class="tag">Disciplina Limpia</span>
+            </div>
+
+            <div class="char-card green-theme" onclick="showDetail('menta')">
+                <div class="char-img-wrap">
+                    <img src="ardilla.png" alt="Menta"> 
+                </div>
+                <h3>MENTA</h3>
+                <span class="tag">Calculadora y Orgullosa</span>
+            </div>
+
+            <div class="char-card purple-theme" onclick="showDetail('mora')">
+                <div class="char-img-wrap">
+                    <img src="mapache.png" alt="Mora">
+                </div>
+                <h3>MORA</h3>
+                <span class="tag">Tranquila y Paciente</span>
+            </div>
+
+            <div class="char-card yellow-theme" onclick="showDetail('toffee')">
+                <div class="char-img-wrap">
+                    <img src="perrito.png" alt="Toffee"> 
+                </div>
+                <h3>TOFFEE</h3>
+                <span class="tag">¡Corazón de Oro!</span>
+            </div>
+        </div>
+
+        <div id="char-details-showcase" class="details-showcase">
+            <div class="details-container">
+                
+                <div class="details-visual-side">
+                    <div class="model-view-box">
+                        <div id="model-3d-container"></div>
+                        <span class="animation-badge">JUGADOR</span>
+                    </div>
+                </div>
+
+                <div class="details-info-side">
+                    <div class="info-block personality-block">
+                        <h4>☁️ Personalidad</h4>
+                        <p id="detail-personality">Selecciona un personaje para ver su perfil.</p>
+                    </div>
+                    
+                    <div class="info-block curiosity-block">
+                        <h4>⭐ Curiosidad</h4>
+                        <p id="detail-curiosity">Descubre sus secretos en la pista.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="inicio" class="hero-section">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="caramelchaos.png" alt="Caramel Chaos Logo" class="main-logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="bienvenida" class="info-section">
+        <div class="info-container">
+            <div class="info-text-side">
+                <span class="section-tag">¡DIVERSIÓN MULTIUGADOR!</span>
+                <h2 class="section-title">¡Bienvenidos a Caramel Chaos!</h2>
+                <p class="section-text">
+                    <strong>Caramel Chaos</strong> es un divertido y caótico Battle Royale de plataformas en 3D.
+                    Elige a tu animal favorito y compite en locas pistas de inflables repletas de obstáculos mientras robas todos los snacks posibles y saboteas a tus rivales. 
+                </p>
+                <div class="game-features">
+                    <span class="feature-tag">Roba Snacks</span>
+                    <span class="feature-tag">Esquiva Trampas</span>
+                    <span class="feature-tag">Evita el Caos</span>
+                </div>
+            </div>
+            
+            <div class="video-side">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO" 
+                            title="Caramel Chaos Promocional" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="escenarios" class="stages-section">
+        <div class="stages-two-columns-wrapper">
+            
+            <div class="stages-left-column">
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                    
+                    <div class="carousel-window">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="stage-slide">
+                                <img src="inflabe.jpg" alt="Pista Inflable 1">
+                                <div class="stage-info">
+                                    <h3>Zona de Saltos Flotantes</h3>
+                                </div>
+                            </div>
+                            <div class="stage-slide">
+                                <img src="carrusel.jpg" alt="Pista Inflable 2">
+                                <div class="stage-info">
+                                    <h3>El Gran Tobogán de Caramelo</h3>
+                                </div>
+                            </div>
+                            <div class="stage-slide">
+                                <img src="si.jpg" alt="Pista Inflable 3">
+                                <div class="stage-info">
+                                    <h3>Obstáculos de Malvavisco</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+
+            <div class="stages-right-column">
+                <span class="section-tag">¡PREPÁRATE PARA LA CARRERA!</span>
+                <h2 class="section-title">VEN A DISFRUTAR DE NUESTROS ESCENARIOS</h2>
+                <p class="section-text">
+                    Lánzate a la competencia en circuitos inflables diseñados para rebotar, caer y volver a levantarte. Cada pista cuenta con atajos dulces, curvas resbaladizas y trampas mecánicas que pondrán a prueba tu velocidad y tus reflejos.
+                </p>
+                <div class="game-features">
+                    <span class="feature-tag">Pistas de Dulce</span>
+                    <span class="feature-tag">Rebotes Locos</span>
+                    <span class="feature-tag">3 Zonas Únicas</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3 class="footer-logo">CARAMEL CHAOS</h3> 
+                <p>Un proyecto universitario lleno de azúcar, trampas y diversión competitiva.</p>
+            </div>
+            <div class="footer-socials">
+                <p class="socials-title">¡SÍGUENOS EN REDES!</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_caramel_chaos_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a> 
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-credits">
+                <p>&copy; 2026 Caramel Chaos Team.</p> 
+            </div>
+        </div>
+    </footer>
+
+<script>
+        // Objeto global con el Lore Oficial extraído de tus fichas
+        const characterLore = {
+            copo: {
+                personality: "¡Una explosión de alegría y energía! Copo es infantilmente hiperactiva, amable y súper soñadora. Se distrae fácilmente con los colores brillantes del parque, es un poquito torpe por andar mirando a las nubes, y su mayor meta es probar absolutamente todos los sabores de algodón de azúcar.",
+                curiosity: "Siempre necesita que alguien la acompañe a la Casa de los Espejos. Su imaginación vuela tan rápido que las illusions la abruman y termina asustándose de sus propios reflejos.",
+                modelFile: "conejoblanco1.png" // Cambia luego por tu GIF de correr o video del modelo
+            },
+            rocco: {
+                personality: "El 'chico bueno' de la competencia. Rocco es responsible, seguro, directo y extremadamente disciplinado. Detesta las trampas y es un poco perfeccionista. Para él, esta carrera no es un simple juego de feria, ¡son sus propias Olimpiadas y viene a ganar limpiamente!",
+                curiosity: "Prefiere mil veces los juegos físicos (como escalar o encestar aros) antes que los juegos mecánicos. Confía mucho más en su propia fuerza y habilidad que en una máquina.",
+                modelFile: "concejocafe2.png"
+            },
+            menta: {
+                personality: "La rival que siempre quiere ganar a toda costa. Menta es seria, calculadora, directa y muy orgullosa. No tiene paciencia para los que van lento y siempre está buscando el ángulo táctico o el atajo perfecto para destrozar a la competencia.",
+                curiosity: "Su lugar obligatorio en la montaña rusa es siempre en el primer asiento. Necesita sentir la velocidad extrema sin que absolutamente nadie le tape la vista.",
+                modelFile: "ardilla.png"
+            },
+            mora: {
+                personality: "La 'mamá' del grupo y la calma en medio del caos. Mora es tranquila, paciente, generosa y muy observadora. Tiene una vibra totalmente relajada; no necesita ser la más rápida porque su inteligencia compensa todo. Si hay un pasadizo secreto de dulces, ella lo conoce.",
+                curiosity: "Le tiene terror a las alturas. Es por eso que odia las rampas gigantes y siempre preferirá tomar rutas terrestres, atajos ocultos o quedarse jugando en los arcades.",
+                modelFile: "mapache.png"
+            },
+            toffee: {
+                personality: "Un grandullón torpe con un corazón de oro. Toffee es ruidoso, expansivo, ultra sociable y definitivamente no conoce su propia fuerza. En la pista no le interesan las estrategias de Menta ni las reglas de Rocco; él solo acelera y atropella los obstáculos con una sonrisa gigante.",
+                curiosity: "Es el campeón indiscutible de la prueba de fuerza (la de golpear con el mazo). ¡A veces golpea tan fuerte que termina rompiendo la campana del juego por accidente!",
+                modelFile: "perrito.png"
+            }
+        };
+
+        // Función interactiva para desplegar y rellenar la vitrina de personajes
+        function showDetail(characterName) {
+            const showcase = document.getElementById('char-details-showcase');
+            const personalityP = document.getElementById('detail-personality');
+            const curiosityP = document.getElementById('detail-curiosity');
+            const modelContainer = document.getElementById('model-3d-container');
+
+            const data = characterLore[characterName];
+
+            if (data) {
+                personalityP.textContent = data.personality;
+                curiosityP.textContent = data.curiosity;
+                modelContainer.innerHTML = `<img src="${data.modelFile}" alt="${characterName} corriendo">`;
+
+                showcase.classList.add('show');
+
+                setTimeout(() => {
+                    showcase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 200);
+            }
+        }
+
+        // LÓGICA DEL CARRUSEL DE ESCENARIOS
+        let currentSlideIndex = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            
+            if (track) {
+                track.style.transform = `translateX(-${currentSlideIndex * (100 / totalSlides)}%)`;
+            }
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+            
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            updateCarousel();
+        }
+
+        // Sistema de transición por Iris Wipe (Navegación limpia y cambio de vistas)
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a'); 
+            const overlay = document.getElementById('transition-overlay');
+            
+            const inicioSection = document.getElementById('inicio');
+            const bienvenidaSection = document.getElementById('bienvenida'); 
+            const escenariosSection = document.getElementById('escenarios');
+            const personajesSection = document.getElementById('personajes'); 
+
+            if (personajesSection) { 
+                personajesSection.style.display = 'none';
+            }
+
+            if (navLinks.length > 0 && overlay) { 
+                navLinks.forEach(link => { 
+                    link.addEventListener('click', function(e) { 
+                        e.preventDefault(); 
+                        const targetId = this.getAttribute('href'); 
+
+                        overlay.classList.add('active'); 
+
+                        setTimeout(() => {
+                            if (targetId === '#personajes') { 
+                                if (inicioSection) inicioSection.style.display = 'none'; 
+                                if (bienvenidaSection) bienvenidaSection.style.display = 'none'; 
+                                if (escenariosSection) escenariosSection.style.display = 'none';
+                                if (personajesSection) personajesSection.style.display = 'block'; 
+                            } else { 
+                                if (inicioSection) inicioSection.style.display = 'flex'; 
+                                if (bienvenidaSection) bienvenidaSection.style.display = 'block'; 
+                                if (escenariosSection) escenariosSection.style.display = 'block';
+                                if (personajesSection) {
+                                    personajesSection.style.display = 'none'; 
+                                    // Reseteamos el showcase al salir de la sección
+                                    document.getElementById('char-details-showcase').classList.remove('show');
+                                }
+                            }
+
+                            window.scrollTo(0, 0);
+
+                            setTimeout(() => {
+                                overlay.classList.remove('active');
+                            }, 600); 
+
+                        }, 800); 
+                    });
+                }); 
+            }
+        });
+    </script>
+    
+</body>
+</html>
